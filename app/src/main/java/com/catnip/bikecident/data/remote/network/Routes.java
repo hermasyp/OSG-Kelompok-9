@@ -1,6 +1,6 @@
-package com.catnip.bikecident.data.remote;
+package com.catnip.bikecident.data.remote.network;
 
-import com.catnip.bikecident.model.Incident;
+import com.catnip.bikecident.model.accident.Incident;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

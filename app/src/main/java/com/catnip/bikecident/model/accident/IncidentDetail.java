@@ -1,4 +1,4 @@
-package com.catnip.bikecident.model;
+package com.catnip.bikecident.model.accident;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

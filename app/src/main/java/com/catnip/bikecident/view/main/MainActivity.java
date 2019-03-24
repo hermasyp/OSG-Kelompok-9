@@ -11,12 +11,13 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.catnip.bikecident.R;
+import com.catnip.bikecident.view.accidentlist.AccidentListFrag;
 import com.catnip.bikecident.view.bookmark.BookmarkFrag;
 import com.catnip.bikecident.view.mapsaccident.AccidentMapsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    final Fragment listFragment = new ListFragment();
+    final Fragment listFragment = new AccidentListFrag();
     final Fragment mapsFragment = new AccidentMapsFragment();
     final Fragment bookmarkFragment = new BookmarkFrag();
     final FragmentManager fm = getSupportFragmentManager();
