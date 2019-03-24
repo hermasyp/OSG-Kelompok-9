@@ -7,15 +7,13 @@ import com.google.gson.annotations.SerializedName;
 public class Incident {
 
     @SerializedName("incidents")
-    @Expose
-    private List<IncidentDetail> incidentDetails = null;
+    List<IncidentDetail> incidents;
 
-    public List<IncidentDetail> getIncidentDetails() {
-        return incidentDetails;
+    public Incident(List<IncidentDetail> incidents) {
+        this.incidents = incidents;
     }
 
-    public void setIncidentDetails(List<IncidentDetail> incidentDetails) {
-        this.incidentDetails = incidentDetails;
+    public List<IncidentDetail> getIncidents() {
+        return incidents;
     }
-
 }
