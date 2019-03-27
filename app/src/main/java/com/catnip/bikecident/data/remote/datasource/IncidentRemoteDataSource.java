@@ -1,5 +1,7 @@
 package com.catnip.bikecident.data.remote.datasource;
 
+import android.util.Log;
+
 import com.catnip.bikecident.data.IncidentDataSource;
 import com.catnip.bikecident.data.remote.network.NetworkClient;
 import com.catnip.bikecident.data.remote.network.Routes;
@@ -19,6 +21,7 @@ public class IncidentRemoteDataSource implements IncidentDataSource {
         call.enqueue(new Callback<Incident>() {
             @Override
             public void onResponse(Call<Incident> call, Response<Incident> response) {
+                Log.e("Response", "The response is : " + response.body().getIncidents().get(1).getTitle());
                 callback.onIncidentLoaded(response.body());
             }
 

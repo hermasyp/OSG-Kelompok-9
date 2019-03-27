@@ -1,42 +1,31 @@
 package com.catnip.bikecident.model.accident;
 
+import android.arch.persistence.room.ColumnInfo;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Source {
 
+    @ColumnInfo(name = "name")
     @SerializedName("name")
-    @Expose
-    private String name;
+    public String name;
+    @ColumnInfo(name = "html_url")
     @SerializedName("html_url")
-    @Expose
-    private String htmlUrl;
+    public String htmlUrl;
+    @ColumnInfo(name = "api_url")
     @SerializedName("api_url")
-    @Expose
-    private String apiUrl;
+    public String apiUrl;
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getHtmlUrl() {
         return htmlUrl;
     }
 
-    public void setHtmlUrl(String htmlUrl) {
-        this.htmlUrl = htmlUrl;
-    }
-
     public String getApiUrl() {
         return apiUrl;
     }
-
-    public void setApiUrl(String apiUrl) {
-        this.apiUrl = apiUrl;
-    }
-
 }

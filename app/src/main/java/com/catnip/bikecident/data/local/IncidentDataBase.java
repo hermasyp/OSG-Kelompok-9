@@ -7,7 +7,7 @@ import android.content.Context;
 
 import com.catnip.bikecident.model.accident.IncidentDetail;
 
-@Database(entities = {IncidentDetail.class}, version = 1)
+@Database(entities = {IncidentDetail.class}, version = 1, exportSchema = false)
 public abstract class IncidentDataBase extends RoomDatabase {
 
     private static IncidentDataBase INSTANCE;

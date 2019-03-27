@@ -13,7 +13,7 @@ public class NetworkClient {
     private static Retrofit retrofit = null;
     public static Retrofit getClient() {
         retrofit = new Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL)
+                .baseUrl("https://bikewise.org/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit;

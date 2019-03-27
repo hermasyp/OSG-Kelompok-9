@@ -1,152 +1,117 @@
 package com.catnip.bikecident.model.accident;
 
-import com.google.gson.annotations.Expose;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
+import com.catnip.bikecident.model.Converter;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "incident")
 public class IncidentDetail {
 
+    @PrimaryKey
     @SerializedName("id")
-    @Expose
-    private Integer id;
+    public Integer id;
+
+    @ColumnInfo(name = "title")
     @SerializedName("title")
-    @Expose
-    private String title;
+    public String title;
+
+    @ColumnInfo(name = "description")
     @SerializedName("description")
-    @Expose
-    private String description;
+    public String description;
+
+    @ColumnInfo(name = "address")
     @SerializedName("address")
-    @Expose
-    private String address;
+    public String address;
+
+    @ColumnInfo(name = "occurred_at")
     @SerializedName("occurred_at")
-    @Expose
-    private Integer occurredAt;
+    public Integer occurredAt;
+
+    @ColumnInfo(name = "updated_at")
     @SerializedName("updated_at")
-    @Expose
-    private Integer updatedAt;
+    public Integer updatedAt;
+
+    @ColumnInfo(name = "url")
     @SerializedName("url")
-    @Expose
-    private String url;
-    @SerializedName("source")
-    @Expose
-    private Source source;
-    @SerializedName("media")
-    @Expose
-    private Media media;
+    public String url;
+
+//    @ColumnInfo(name = "source")
+//    @SerializedName("source")
+//    public Source source;
+
+//    @TypeConverters(Converter.class)
+//    @ColumnInfo(name = "media")
+//    @SerializedName("media")
+//    public Media media;
+
+    @ColumnInfo(name = "location_type")
     @SerializedName("location_type")
-    @Expose
-    private Object locationType;
+    public String locationType;
+
+    @ColumnInfo(name = "location_description")
     @SerializedName("location_description")
-    @Expose
-    private Object locationDescription;
+    public String locationDescription;
+
+    @ColumnInfo(name = "type")
     @SerializedName("type")
-    @Expose
-    private String type;
+    public String type;
+
+    @ColumnInfo(name = "type_properties")
     @SerializedName("type_properties")
-    @Expose
-    private Object typeProperties;
+    public String typeProperties;
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public Integer getOccurredAt() {
         return occurredAt;
-    }
-
-    public void setOccurredAt(Integer occurredAt) {
-        this.occurredAt = occurredAt;
     }
 
     public Integer getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Integer updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+//    public Source getSource() {
+//        return source;
+//    }
+//
+//    public Media getMedia() {
+//        return media;
+//    }
 
-    public Source getSource() {
-        return source;
-    }
-
-    public void setSource(Source source) {
-        this.source = source;
-    }
-
-    public Media getMedia() {
-        return media;
-    }
-
-    public void setMedia(Media media) {
-        this.media = media;
-    }
-
-    public Object getLocationType() {
+    public String getLocationType() {
         return locationType;
     }
 
-    public void setLocationType(Object locationType) {
-        this.locationType = locationType;
-    }
-
-    public Object getLocationDescription() {
+    public String getLocationDescription() {
         return locationDescription;
-    }
-
-    public void setLocationDescription(Object locationDescription) {
-        this.locationDescription = locationDescription;
     }
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Object getTypeProperties() {
+    public String getTypeProperties() {
         return typeProperties;
     }
-
-    public void setTypeProperties(Object typeProperties) {
-        this.typeProperties = typeProperties;
-    }
-
 }

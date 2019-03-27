@@ -11,6 +11,6 @@ import retrofit2.http.GET;
  **/
 public interface Routes {
 
-    @GET("api/v2/incidents")
+    @GET("/api/v2/incidents")
     Call<Incident> getAllIncidents();
 }
