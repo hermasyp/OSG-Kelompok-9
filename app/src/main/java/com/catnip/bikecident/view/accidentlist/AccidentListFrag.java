@@ -76,7 +76,6 @@ public class AccidentListFrag extends Fragment {
         adapter = new AccidentListAdapter(dataListIncident);
         recIncident = binding.recyclerIncident;
         recIncident.setLayoutManager(new LinearLayoutManager(getContext()));
-        recIncident.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         recIncident.setAdapter(adapter);
     }
 }

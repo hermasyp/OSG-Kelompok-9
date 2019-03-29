@@ -4,6 +4,8 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
+
+import com.catnip.bikecident.R;
 import com.catnip.bikecident.model.Converter;
 import com.google.gson.annotations.SerializedName;
 
@@ -28,7 +30,7 @@ public class IncidentDetail {
 
     @ColumnInfo(name = "occurred_at")
     @SerializedName("occurred_at")
-    public Integer occurredAt;
+    public String occurredAt;
 
     @ColumnInfo(name = "updated_at")
     @SerializedName("updated_at")
@@ -63,6 +65,8 @@ public class IncidentDetail {
     @SerializedName("type_properties")
     public String typeProperties;
 
+    public int iconResourceId;
+
     public Integer getId() {
         return id;
     }
@@ -79,7 +83,7 @@ public class IncidentDetail {
         return address;
     }
 
-    public Integer getOccurredAt() {
+    public String getOccurredAt() {
         return occurredAt;
     }
 
@@ -113,5 +117,19 @@ public class IncidentDetail {
 
     public String getTypeProperties() {
         return typeProperties;
+    }
+
+    public IncidentDetail(int iconResourceId) {
+        this.iconResourceId = iconResourceId;
+    }
+
+    public int getIconResourceId(String type) {
+        if (type.equalsIgnoreCase("crash")) return R.drawable.icon_accident;
+        else if (type.equalsIgnoreCase("hazard")) return R.drawable.icon_hazard;
+        else if (type.equalsIgnoreCase("theft")) return R.drawable.icon_thief;
+        else if (type.equalsIgnoreCase("infrastructure_issue")) return R.drawable.icon_infra_issue;
+        else if (type.equalsIgnoreCase("chop_shop")) return R.drawable.icon_chop_shop;
+
+        return R.drawable.icon_accident;
     }
 }

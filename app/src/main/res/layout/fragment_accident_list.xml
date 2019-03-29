@@ -18,7 +18,7 @@
             android:id="@+id/recyclerIncident"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_row">
+            tools:listitem="@layout/item_holder_incident">
 
         </android.support.v7.widget.RecyclerView>
 
