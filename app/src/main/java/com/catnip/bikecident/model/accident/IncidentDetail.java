@@ -154,7 +154,7 @@ public class IncidentDetail {
                     .into(view);
         } else {
             Picasso.get()
-                    .load(R.drawable.icon_accident)
+                    .load(R.drawable.icon_hazard)
                     .into(view);
         }
     }
