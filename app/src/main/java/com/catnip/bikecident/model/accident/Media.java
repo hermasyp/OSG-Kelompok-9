@@ -4,50 +4,52 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.databinding.BindingAdapter;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.squareup.picasso.Picasso;
 
-//@Entity(tableName = "incident")
+//@Entity(tableName = "media")
 public class Media {
+//
+//    @PrimaryKey(autoGenerate = true)
+//    public int mId;
 
-    //@PrimaryKey(autoGenerate = true)
-    public int mId;
-
-    //@ColumnInfo(name = "image_url")
+    @ColumnInfo(name = "image_url")
     @SerializedName("image_url")
-    public Object imageUrl;
+    public String imageUrl;
 
-    //@ColumnInfo(name = "image_url_thumb")
+    @ColumnInfo(name = "image_url_thumb")
     @SerializedName("image_url_thumb")
-    public Object imageUrlThumb;
+    public String imageUrlThumb;
 
-    public int getmId() {
-        return mId;
+    public Media(String imageUrl, String imageUrlThumb) {
+        this.imageUrl = imageUrl;
+        this.imageUrlThumb = imageUrlThumb;
     }
 
-    public Object getImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    //@BindingAdapter({"imageUrl"})
-    public static void loadImage(ImageView view, String imageUrl) {
-        Picasso.get()
-                .load(imageUrl)
-                .into(view);
-
-    }
-
-    public Object getImageUrlThumb() {
+    public String getImageUrlThumb() {
         return imageUrlThumb;
     }
 
+    @BindingAdapter({"imageIncident"})
+    public static void loadImage(ImageView view, String imageUrl) {
+        if (imageUrl!=null) {
+            Picasso.get()
+                    .load(imageUrl)
+                    .fit()
+                    .into(view);
+        } else {
+            view.setVisibility(View.GONE);
+        }
+        Log.e("image", "Image is : " + imageUrl);
 
-    public Media(int mId, Object imageUrl, Object imageUrlThumb) {
-        this.mId = mId;
-        this.imageUrl = imageUrl;
-        this.imageUrlThumb = imageUrlThumb;
     }
 }

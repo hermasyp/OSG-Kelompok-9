@@ -1,12 +1,11 @@
 package com.catnip.bikecident.model.accident;
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.arch.persistence.room.TypeConverters;
 
 import com.catnip.bikecident.R;
-import com.catnip.bikecident.model.Converter;
 import com.google.gson.annotations.SerializedName;
 
 @Entity(tableName = "incident")
@@ -42,12 +41,13 @@ public class IncidentDetail {
 
 //    @ColumnInfo(name = "source")
 //    @SerializedName("source")
+//    @Embedded
 //    public Source source;
 
-//    @TypeConverters(Converter.class)
 //    @ColumnInfo(name = "media")
-//    @SerializedName("media")
-//    public Media media;
+    @SerializedName("media")
+    @Embedded
+    public Media media;
 
     @ColumnInfo(name = "location_type")
     @SerializedName("location_type")
@@ -98,10 +98,10 @@ public class IncidentDetail {
 //    public Source getSource() {
 //        return source;
 //    }
-//
-//    public Media getMedia() {
-//        return media;
-//    }
+
+    public Media getMedia() {
+        return media;
+    }
 
     public String getLocationType() {
         return locationType;
