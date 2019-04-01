@@ -36,6 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     tools:background="@color/colorAccent"
+                    android:visibility="gone"
                     bind:imageIncident="@{accidentDetailVM.media.imageUrlThumb}"/>
 
                 <LinearLayout
@@ -49,6 +50,7 @@
                         android:layout_margin="10dp"
                         android:src="@drawable/icon_accident"
                         android:contentDescription="icon_type"
+                        bind:iconType="@{accidentDetailVM.type}"
                         android:layout_gravity="center_vertical"/>
 
                     <LinearLayout

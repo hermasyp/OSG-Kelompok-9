@@ -4,9 +4,12 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.databinding.BindingAdapter;
+import android.widget.ImageView;
 
 import com.catnip.bikecident.R;
 import com.google.gson.annotations.SerializedName;
+import com.squareup.picasso.Picasso;
 
 @Entity(tableName = "incident")
 public class IncidentDetail {
@@ -123,13 +126,36 @@ public class IncidentDetail {
         this.iconResourceId = iconResourceId;
     }
 
-    public int getIconResourceId(String type) {
-        if (type.equalsIgnoreCase("crash")) return R.drawable.icon_accident;
-        else if (type.equalsIgnoreCase("hazard")) return R.drawable.icon_hazard;
-        else if (type.equalsIgnoreCase("theft")) return R.drawable.icon_thief;
-        else if (type.equalsIgnoreCase("infrastructure_issue")) return R.drawable.icon_infra_issue;
-        else if (type.equalsIgnoreCase("chop_shop")) return R.drawable.icon_chop_shop;
-
-        return R.drawable.icon_accident;
+    @BindingAdapter({"iconType"})
+    public static void loadIcon(ImageView view, String type) {
+        if (type.equalsIgnoreCase("crash")) {
+            Picasso.get()
+                    .load(R.drawable.icon_accident)
+                    .into(view);
+        }
+        else if (type.equalsIgnoreCase("hazard")) {
+            Picasso.get()
+                    .load(R.drawable.icon_hazard)
+                    .into(view);
+        }
+        else if (type.equalsIgnoreCase("theft")) {
+            Picasso.get()
+                    .load(R.drawable.icon_thief)
+                    .into(view);
+        }
+        else if (type.equalsIgnoreCase("infrastructure_issue")) {
+            Picasso.get()
+                    .load(R.drawable.icon_infra_issue)
+                    .into(view);
+        }
+        else if (type.equalsIgnoreCase("chop_shop")) {
+            Picasso.get()
+                    .load(R.drawable.icon_chop_shop)
+                    .into(view);
+        } else {
+            Picasso.get()
+                    .load(R.drawable.icon_accident)
+                    .into(view);
+        }
     }
 }

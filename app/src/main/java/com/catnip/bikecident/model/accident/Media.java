@@ -41,7 +41,8 @@ public class Media {
 
     @BindingAdapter({"imageIncident"})
     public static void loadImage(ImageView view, String imageUrl) {
-        if (imageUrl!=null) {
+        if (imageUrl!=null){
+            view.setVisibility(View.VISIBLE);
             Picasso.get()
                     .load(imageUrl)
                     .fit()
@@ -49,6 +50,7 @@ public class Media {
         } else {
             view.setVisibility(View.GONE);
         }
+
         Log.e("image", "Image is : " + imageUrl);
 
     }
